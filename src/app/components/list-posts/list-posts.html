@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h2>Blog Posts</h2>
+  
+  <div *ngFor="let post of posts" class="card mb-3 p-3 shadow-sm border mb-3">
+    <h3>
+      <a [routerLink]="['/post', post.id]" class="text-decoration-none">
+        {{ post.title }}
+      </a>
+    </h3>
+    <p>{{ post.body }}</p>
+    <small class="text-muted">
+      By {{ post.firstName }} {{ post.lastName }} ({{ post.userName }}) on {{ post.dateCreated | date:'medium' }}
+    </small>
+  </div>
+</div>
