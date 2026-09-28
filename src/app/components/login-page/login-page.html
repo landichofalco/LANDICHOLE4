@@ -1,13 +1,24 @@
-<div>
-  <h1>Welcome Back!</h1>
-  <h3>Login Here</h3>
-  <form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
-    <div>
-      <label for="username">Email</label>
-      <input required type="text" name="username" [(ngModel)]="form.username" #username="ngModel">
-      <label for="password">Password</label>
-      <input type="password" name="password" [(ngModel)]="form.password" required #password="ngModel">
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="auth-card p-4 p-md-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Welcome Back</h2>
+        <p class="text-muted">Enter your credentials to access your account</p>
+      </div>
+      
+      <form (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+        <div class="mb-3">
+          <label class="form-label text-secondary small fw-bold">USERNAME</label>
+          <input type="text" class="form-control form-control-lg bg-light border-0" name="username" [(ngModel)]="form.username" required #username="ngModel" placeholder="Enter username" />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label text-secondary small fw-bold">PASSWORD</label>
+          <input type="password" class="form-control form-control-lg bg-light border-0" name="password" [(ngModel)]="form.password" required #password="ngModel" placeholder="••••••••" />
+        </div>
+
+        <button type="submit" class="btn btn-gradient btn-lg w-100 py-2 mb-3">Sign In</button>
+      </form>
     </div>
-    <button>Submit</button>
-  </form>
+  </div>
 </div>

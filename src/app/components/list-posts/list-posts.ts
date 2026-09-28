@@ -15,7 +15,7 @@ import { Post } from '../../models/post.model';
 })
 
 export class ListPosts implements OnInit {
-  posts?: Post[] = [];
+  posts: any[] = [];
   post?: Post;
   id?: string;
   routeSub?: Subscription;

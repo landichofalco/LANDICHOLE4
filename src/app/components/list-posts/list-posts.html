@@ -1,15 +1,22 @@
 <div class="container mt-4">
-  <h2>Blog Posts</h2>
+  <h2 class="mb-4 fw-bold">Recent Blog Posts</h2>
   
-  <div *ngFor="let post of posts" class="card mb-3 p-3 shadow-sm border mb-3">
-    <h3>
-      <a [routerLink]="['/post', post.id]" class="text-decoration-none">
-        {{ post.title }}
-      </a>
-    </h3>
-    <p>{{ post.body }}</p>
-    <small class="text-muted">
-      By {{ post.firstName }} {{ post.lastName }} ({{ post.userName }}) on {{ post.dateCreated | date:'medium' }}
-    </small>
+  <div class="row">
+
+    <div class="col-md-4 mb-4" *ngFor="let post of posts">
+      <div class="blog-card p-4 h-d-flex flex-column justify-content-between">
+        <div>
+          <h4 class="fw-bold text-dark">{{ post.title }}</h4>
+          <p class="text-muted small">By {{ post.author || 'Author' }}</p>
+          <p class="text-secondary">{{ post.content | slice:0:100 }}...</p>
+        </div>
+        <a [routerLink]="['/post', post.id]" class="btn btn-gradient btn-sm mt-3">Read More</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="!posts || posts.length === 0" class="text-center py-5 text-muted">
+    <p>Loading posts or check API connection...</p>
   </div>
 </div>
